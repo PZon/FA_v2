@@ -1,8 +1,8 @@
 body{
-	background:#222211;
-	font-family: 'Diplomata SC', cursive;
-	color: #ccac77;
-	margin:0 !important;
+ background-color:#222211;
+ font-family: 'Diplomata SC', cursive;
+ color: #ccac77;
+ margin:0 !important;
 }
 #top{
 	max-width:100%;
@@ -44,12 +44,12 @@ body{
 	line-height:90%;
 }
 /******** sticky MENU******/
-.sticky{
+.stickyToTop{
 	width:100%;
 	position:fixed;
 	top:0;
 	left:0;
-	z-index=100;
+	z-index:100;
 }
 
 hr{
@@ -60,7 +60,7 @@ hr{
 footer{
 	max-width:100%;
 	min-height:20px;
-	background:#3d3d29;
+	background-color:#3d3d29;
 	border: 3px solid #ccac77;
 	text-align:center;
 	padding	:13px;
@@ -99,6 +99,10 @@ article{
  text-shadow:2px 2px #000;
  text-align:justify;
 }
+#homePage h6,
+#homePage h5{
+ font-family: 'Diplomata SC', cursive;
+}
 a{
 	color:#cc9900;
 	text-decoration:none;
@@ -121,7 +125,25 @@ a:hover{
  font-size:17px;
  text-shadow: 2px 2px 3px #000;
 }
+.navbar{
+ font-size:20px;
+ font-family: 'Anton', sans-serif;
+ font-weight:bold;
+ background-color:#997300;
+ border-top: 2px solid #ccac77;
+ border-bottom: 2px solid #ccac77;
+}
+.dropdown-menu{
+ background-color:#997300;
 
+}
+.dropdown-item{
+ text-shadow:0 0;
+ font-weight:bold;
+}
+.dropdown-item:hover{
+ background-color:#ccac77;
+}
 /***carousel***/
 .carousel-item img{
 	height:500px;
@@ -134,4 +156,28 @@ a:hover{
 /****RegisterModal********/
 .modal-content{
  background:#3d3d29;
+}
+#transBtns{
+	margin-left:auto;
+	margin-right:auto;
+}
+table{
+	background-color:#3d3d29;
+}
+table tr th, td{
+	color: #ccac77;
+}
+.table-bordered thead th{
+	border-bottom: 2px solid #ccac77;
+}
+.table-bordered td,
+.table-bordered th {
+    border: 1px solid #ccac77;;
+}
+.btn-danger{
+	text-shadow:0 0 transparent;
+}
+#removeTransModal{
+	border:2px solid #dc3545;
+	font-weight:bold;
 }

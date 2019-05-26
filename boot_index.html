@@ -3,11 +3,12 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="description" content="Finance Assistant">
 	<meta name="keywords" content="finance, income, expense, budget, money">
 	<title>Finance Assistant</title>
 	<link rel="shortcut icon" href="img/favicon.ico"/>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/swanky-purse/jquery-ui.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/boot_Style.css" media=" screen, print" type="text/css"/>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"/>
@@ -15,7 +16,7 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
-	<script	src="js/scrollTo.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script	src="js/boot_scripts.js"></script>
 	
 	<script>
@@ -27,7 +28,7 @@
 		);
 		
 		$(window).scroll(function(){
-				if($(this).scrollTop()>130) $('.scrollUp').fadeIn();
+				if($(this).scrollTop()>170) $('.scrollUp').fadeIn();
 				else $('.scrollUp').fadeOut();	
 			}	
 		);
@@ -103,28 +104,29 @@
  <div id="homePage" class="container">
   <div class="row mb-3">
 	<div class="col-sm-12 col-md-7 ">
-	 <p>Managing household expenses can seem like a scary thing, regardless of whether you're living on your own with your partner for the first time, or are an experienced homeowner with kids. It's important to confront your finances and create an effective household budget to help you get a grasp on your finances and limits.<br>
-	 By listing all of your sources of income against all of your monthly expenditures (from required expenses like mortgage or rent payments to discretionary spending like eating out or going to the movies), you get a true picture of your personal cash flow, which will allow you to make better and more informed financial decisions. An accurate budget will also help you to answer that ever elusive question, "Can I afford it?"<br>
+	 <p>&nbsp; Managing household expenses can seem like a scary thing. It's important to confront your finances and create an effective household budget to help you get a grasp on your finances and limits.<br /><br />
+	 &nbsp; By listing all of your sources of income against all of your monthly expenditures (from required expenses like mortgage or rent payments to discretionary spending like eating out or going to the movies), you get a true picture of your personal cash flow, which will allow you to make better and more informed financial decisions. An accurate budget will also help you to answer that ever elusive question, "Can I afford it?"<br /><br />
 	 Finance Assistant help you to track your expenses, incomes, bills and always stay with-in budget.</p>
 	</div>
 	<div id="logForm" class="col-sm-12 col-md-4 pt-md-3 mb-md-5 ml-md-3 divBorder">
 	 <h4 class="mb-4">To use Finance Assistant please Log In</h4>
-		<form>
-		  <div class="form-group">Login</label>
-			<input type="text" class="form-control" id="InputLogin" aria-describedby="loginHelp" placeholder="Enter Login" required>
+		<form action="boot_statements.html?view=cm" method="post">
+		  <div class="form-group">
+		   <label for="InputLogin">Login</label>
+			<input type="text" class="form-control" id="InputLogin" aria-describedby="InputLogin" placeholder="Enter Login" required>
 		  </div>
 		  <div class="form-group">
 			<label for="InputPassword">Password</label>
-			<input type="password" class="form-control" id="InputPassword"  aria-describedby="passHelp" placeholder="Password" required>
+			<input type="password" class="form-control" id="InputPassword"  aria-describedby="InputPassword" placeholder="Password" required>
 			<small id="passHelp" class="form-text text-warning">Never share your password with anyone else.</small>
 		  </div>
-		  <button type="submit" class="btn btn-warning">Submit</button>
+		  <button type="submit" class="m-1 btn btn-warning">Log In</button>
 		</form>
 	 </div><br>
    </div><hr>
     <h4>*If you have not account, please register here: 
     <a href="registerForm.html" title="Register Form" data-toggle="modal" data-target="#registerModal">Register Form</a></h4>	
-	<!--- Register MODAL --->
+	<!--- Register MODAL -->
 	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -135,7 +137,7 @@
 			</button>
 		  </div>
 		  <div class="modal-body">
-			<form action="registerForm.php">
+			<form action="registerVerify.php">
 			  <div class="form-group">
 				<label for="name" class="col-form-label">Name:</label>
 				<input type="text" class="form-control" id="name" >
@@ -145,27 +147,31 @@
 				<input type="text" class="form-control" id="surname">
 			  </div>
 			  <div class="form-group">
-				<label for="nick" class="col-form-label">User name:</label>
+				<label for="nick" class="col-form-label">*User name:</label>
 				<input type="text" class="form-control" id="nick" required>
 			  </div>
 			  <div class="form-group">
-				<label for="password1" class="col-form-label">Password:</label>
+				<label for="email" class="col-form-label">*Email:</label>
+				<input type="email" class="form-control" id="email" required>
+			  </div>
+			  <div class="form-group">
+				<label for="password1" class="col-form-label">*Password:</label>
 				<input type="password" class="form-control" id="password1" required>
 			  </div>
 			  <div class="form-group">
-				<label for="password2" class="col-form-label">Repeat Password:</label>
+				<label for="password2" class="col-form-label">*Repeat Password:</label>
 				<input type="password" class="form-control" id="password2" required>
+				<small id="registerHelp" class="form-text text-warning">Fields with * are required</small>
 			  </div>
-			</div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			<button type="submit" class="btn btn-warning">Register</button>
 		  </div>
-		  </form>
+		 </form></div>
 		</div>
 	  </div>
 	</div>
-<!--- end modal --->
+<!--- end modal -->
  </div>
  </article>
 </main>	

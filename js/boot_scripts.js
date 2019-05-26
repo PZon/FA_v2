@@ -20,5 +20,10 @@ function countdown(){
 	setTimeout("countdown()",1000);
 }
 
-
-
+$(function() {
+  $( "#datepickerFrom" ).datepicker({dateFormat: 'yy-mm-dd' }); 
+  $( "#datepickerTo" ).datepicker({ dateFormat: 'yy-mm-dd' });
+  $( "#incomeDate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+  $( "#expenseDate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+  $( "#transactionDate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+});
